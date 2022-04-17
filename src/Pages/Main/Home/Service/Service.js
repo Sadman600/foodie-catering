@@ -2,7 +2,6 @@ import React from 'react';
 import './Service.css';
 
 const Service = ({ service }) => {
-    console.log(service);
     const { img, category, price, description } = service;
     return (
         <div className="card">
