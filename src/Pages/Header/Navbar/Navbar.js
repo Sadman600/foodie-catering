@@ -5,7 +5,7 @@ const Navbar = () => {
     return (
         <nav className="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
             <div className='container'>
-                <NavLink className="navbar-brand" to='/'>Foodia</NavLink>
+                <NavLink className="navbar-brand" to='/'>Foodie</NavLink>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
