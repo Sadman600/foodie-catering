@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { Carousel } from 'react-bootstrap';
-import foodie1 from '../../../../images/foodie-1.png';
-import foodie2 from '../../../../images/foodie-2.PNG';
 
 const Banner = () => {
     const [index, setIndex] = useState(0);

@@ -3,7 +3,7 @@
         "id": 1,
         "category": "Indian Food ",
         "name": "",
-        "seller": "Addidas",
+        "description": "Indian food is perhaps as diverse as its culture and offers a lot more than curries and gravies.",
         "price": 420,
         "img": "https://i.ibb.co/BThTrZq/indian-food-menu-800x428.jpg"
     },
@@ -11,7 +11,7 @@
         "id": 2,
         "category": "French Food ",
         "name": "",
-        "seller": "Addidas",
+        "description": "France boasts of a wide range of cuisines. The cuisines follow authentic traditional cooking practices.",
         "price": 480,
         "img": "https://i.ibb.co/Y2Rr1sx/french-food-800x534.jpg"
     },
@@ -19,7 +19,7 @@
         "id": 3,
         "category": "Italian Food ",
         "name": "",
-        "seller": "Addidas",
+        "description": "Italian food boasts of classically prepared pizza bases baked with savoury toppings of vegetables, meat, and cheese.",
         "price": 500,
         "img": "https://i.ibb.co/7ScwkH7/sectors-of-the-food-service-industry-1617911827-1264-800x400-800x400.jpg"
     },
@@ -27,7 +27,7 @@
         "id": 4,
         "category": "Chinese Food  ",
         "name": "",
-        "seller": "Addidas",
+        "description": "They say, Chinese food is the tastiest in the world. It includes soups, snacks, and meals prepared with rice, noodles, vegetables, meats, seafood, sauces, and seasonings. ",
         "price": 200,
         "img": "https://i.ibb.co/Zx9zrBx/chinese-food-menu-800x524.jpg"
     },
@@ -35,7 +35,7 @@
         "id": 5,
         "category": "Thai Food ",
         "name": "",
-        "seller": "Addidas",
+        "description": "Thai food is popular for the aroma it brings with the addition of lemongrass, lemon leaves, galangal, chili, and aromatic herbs.",
         "price": 520,
         "img": "https://i.ibb.co/9gqWyNS/thai-food-menu-800x480.jpg"
     },
@@ -43,7 +43,7 @@
         "id": 6,
         "category": "Mexican Food ",
         "name": "",
-        "seller": "Addidas",
+        "description": "Mexican line of food is famous for spicy and tangy taste. It includes salads, snacks, one-dish meals, elaborate meals, and desserts.",
         "price": 610,
         "img": "https://i.ibb.co/xGJSVPR/mexican-food-menu-800x533.jpg"
     }
