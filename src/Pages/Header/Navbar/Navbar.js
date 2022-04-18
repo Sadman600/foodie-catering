@@ -1,7 +1,20 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import auth from '../../../firebase.init';
+import Loading from '../../Main/Login/Loading/Loading';
 
 const Navbar = () => {
+    const [user, loading, error] = useAuthState(auth);
+    if (loading) {
+        <Loading></Loading>
+    }
+    const navigate = useNavigate();
+    const logOut = () => {
+        signOut(auth);
+        navigate('/login');
+    };
     return (
         <nav className="navbar sticky-top navbar-expand-lg navbar-dark bg-dark ">
             <div className='container'>
@@ -14,12 +27,23 @@ const Navbar = () => {
                         <li className="nav-item me-3">
                             <Link className="nav-link active fs-5" aria-current="page" to='/'>Home</Link>
                         </li>
-                        <li className="nav-item me-3">
-                            <Link className="nav-link fs-5" to='/signup'>Sign Up</Link>
-                        </li>
-                        <li className="nav-item me-3">
-                            <Link className="nav-link fs-5" to='/login'>Log In</Link>
-                        </li>
+                        {
+                            user ? ''
+                                :
+                                <li className="nav-item me-3">
+                                    <Link className="nav-link fs-5" to='/signup'>Sign Up</Link>
+                                </li>
+                        }
+                        {user ?
+                            <li className="nav-item me-3">
+                                <button onClick={logOut} type='button' className='btn btn-link text-decoration-none text-white fs-5'>Log Out</button>
+                                {/* <Link onClick={logOut} className="nav-link fs-5" to=''>Log Out</Link> */}
+                            </li>
+                            :
+                            <li className="nav-item me-3">
+                                <Link className="nav-link fs-5" to='/login'>Log In</Link>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>
