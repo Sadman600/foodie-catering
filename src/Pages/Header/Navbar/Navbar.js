@@ -6,10 +6,8 @@ import auth from '../../../firebase.init';
 import Loading from '../../Main/Login/Loading/Loading';
 
 const Navbar = () => {
-    const [user, loading, error] = useAuthState(auth);
-    if (loading) {
-        <Loading></Loading>
-    }
+    const [user] = useAuthState(auth);
+
     const navigate = useNavigate();
     const logOut = () => {
         signOut(auth);
@@ -17,7 +15,7 @@ const Navbar = () => {
     };
     return (
         <nav className="navbar sticky-top navbar-expand-lg navbar-dark bg-dark ">
-            <div className='container'>
+            <div className='container-fluid'>
                 <NavLink className="navbar-brand" to='/'>Foodie</NavLink>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>

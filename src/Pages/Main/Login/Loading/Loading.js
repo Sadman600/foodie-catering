@@ -3,9 +3,9 @@ import { Spinner } from 'react-bootstrap';
 
 const Loading = () => {
     return (
-        <>
-            <Spinner animation="grow" variant="info" />
-        </>
+        <div className='w-100 d-flex justify-content-center align-item-center'>
+            <Spinner animation="border" variant="info" />
+        </div>
     );
 };
 

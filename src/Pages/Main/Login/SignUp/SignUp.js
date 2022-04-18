@@ -14,9 +14,9 @@ const SignUp = () => {
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const navigate = useNavigate();
 
-    if (user) {
-        navigate('/');
-    }
+    // if (user) {
+
+    // }
 
     const handleCreateUser = (e) => {
         e.preventDefault();
@@ -25,7 +25,7 @@ const SignUp = () => {
         const password = e.target.password.value;
 
         createUserWithEmailAndPassword(email, password);
-
+        navigate('/');
     }
     return (
         <div className='container w-50 mx-auto my-4 border border-5 rounded-3'>
