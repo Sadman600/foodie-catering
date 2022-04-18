@@ -28,6 +28,9 @@ const Navbar = () => {
                         <li className="nav-item me-3">
                             <Link className="nav-link active fs-5" aria-current="page" to='/blog'>Blog</Link>
                         </li>
+                        <li className="nav-item me-3">
+                            <Link className="nav-link active fs-5" aria-current="page" to='/profile'>Profile</Link>
+                        </li>
                         {
                             user ? ''
                                 :
