@@ -10,7 +10,8 @@ import Login from './Pages/Main/Login/Login/Login';
 import RequireAuth from './Pages/Main/Login/RequireAuth/RequireAuth';
 import SignUp from './Pages/Main/Login/SignUp/SignUp';
 import PageNotFound from './Pages/Main/PageNotFound/PageNotFound';
-import Profile from './Pages/Main/Profile/Profile/Profile';
+import About from './Pages/Main/Profile/About/About';
+
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
         }></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
-        <Route path='/profile' element={<Profile></Profile>}></Route>
+        <Route path='/about' element={<About></About>}></Route>
         <Route path='*' element={<PageNotFound></PageNotFound>}></Route>
       </Routes>
       <Footer></Footer>

@@ -29,7 +29,7 @@ const Navbar = () => {
                             <Link className="nav-link active fs-5" aria-current="page" to='/blog'>Blog</Link>
                         </li>
                         <li className="nav-item me-3">
-                            <Link className="nav-link active fs-5" aria-current="page" to='/profile'>Profile</Link>
+                            <Link className="nav-link active fs-5" aria-current="page" to='/about'>About Me</Link>
                         </li>
                         {
                             user ? ''
@@ -40,7 +40,7 @@ const Navbar = () => {
                         }
                         {user ?
                             <li className="nav-item me-3">
-                                <button onClick={logOut} type='button' className='btn btn-link text-decoration-none text-white fs-5'>Log Out</button>
+                                <button onClick={() => logOut()} type='button' className='btn btn-link text-decoration-none text-white fs-5'>Log Out</button>
                                 {/* <Link onClick={logOut} className="nav-link fs-5" to=''>Log Out</Link> */}
                             </li>
                             :

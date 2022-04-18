@@ -22,6 +22,20 @@ const Blog = () => {
                         Twitter, and more.</p>
                     <p>Other options i have to implement cards, retina scans, voice recognition, and fingerprints for authentication</p>
                 </article>
+                <article className=' border border-3 p-3 my-2'>
+                    <h4>QA: What other services does firebase provide other than authentication</h4>
+                    <p>There are many services which Firebase provides, Most useful of them are:</p>
+                    <ul>
+                        <li>Cloud Firestore.</li>
+                        <li>Cloud Functions.</li>
+                        <li>Authentication.</li>
+                        <li>Hosting.</li>
+                        <li>Cloud Storage.</li>
+                        <li>Google Analytics.</li>
+                        <li>Predictions.</li>
+                        <li>Cloud Messaging.</li>
+                    </ul>
+                </article>
             </div>
         </section>
     );

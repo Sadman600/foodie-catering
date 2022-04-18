@@ -1,10 +1,11 @@
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../../firebase.init';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Loading from '../Loading/Loading';
 
 const Login = () => {
     const [loginUser] = useAuthState(auth);
@@ -13,6 +14,11 @@ const Login = () => {
     const [signInWithEmailAndPassword, user, loading, error,] = useSignInWithEmailAndPassword(auth);
     const [sendPasswordResetEmail, sending, resetError] = useSendPasswordResetEmail(auth);
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+    const [signInWithGithub, gitUser, gitLoading, gitError] = useSignInWithGithub(auth);
+
+    if (loading || googleLoading) {
+        <Loading></Loading>
+    }
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -25,8 +31,13 @@ const Login = () => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        signInWithEmailAndPassword(email, password);
-        navigate('/');
+        if (!email || !password) {
+            toast('Enter email and password ');
+        } else {
+            signInWithEmailAndPassword(email, password);
+            navigate('/');
+        }
+
     }
 
     const handleResetPassword = async () => {
@@ -39,15 +50,17 @@ const Login = () => {
         }
 
     }
-    const handleSignInWithGoogle = (e) => {
-        const email = emailRef.current.value;
-        const password = passwordRef.current.value;
+    const handleSignInWithGoogle = () => {
         signInWithGoogle();
+        navigate('/');
+    }
+    const handleSignInWithGithub = () => {
+        signInWithGithub();
         navigate('/');
     }
     return (
         <div className='container w-50 mx-auto my-4 border border-5 rounded-3'>
-            <Form onSubmit={handleSignIn} className='p-4'>
+            <Form onSubmit={() => handleSignIn()} className='p-4'>
                 <h1 className='text-center'>Plz Login</h1>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
@@ -63,8 +76,8 @@ const Login = () => {
                     Login
                 </Button>
 
-                <h6>Don't have a account? <Link to='/signup'>Sign Up</Link> </h6>
-                <h6>Forgate Password?<button onClick={() => handleResetPassword()} type="button" className="btn btn-link">Reset Password</button> </h6>
+                <h6 className='m-2'>Don't have an account? <Link to='/signup'>Sign Up</Link> </h6>
+                <h6 className='m-2'>Forgate Password?<button onClick={() => handleResetPassword()} type="button" className="btn btn-link">Reset Password</button> </h6>
 
                 {/* Social Login */}
                 <div>
@@ -76,12 +89,12 @@ const Login = () => {
                     <div className='d-flex justify-content-center align-items-center'>
                         <button onClick={() => handleSignInWithGoogle()} type="button" class="btn btn-danger my-2 mx-2">
                             <i className="fa-brands fa-google mx-2"></i>
-                            Login with Google
+                            Sign In with Google
                         </button>
                         <br />
-                        <button onClick={() => signInWithGoogle()} type="button" class="btn btn-dark my-2 mx-2">
-                            <i class="fa-brands fa-github"></i>
-                            Login with Google
+                        <button onClick={() => handleSignInWithGithub()} type="button" class="btn btn-dark my-2 mx-2">
+                            <i class="fa-brands fa-github mx-2"></i>
+                            Sign In with Github
                         </button>
                     </div>
                 </div>

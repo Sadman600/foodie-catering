@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
@@ -6,6 +6,7 @@ import auth from '../../../../firebase.init';
 
 const SignUp = () => {
 
+    const [newError, setNewError] = useState('');
     const [
         createUserWithEmailAndPassword,
         user,
@@ -23,6 +24,10 @@ const SignUp = () => {
         const name = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
+        if (password.length !== 6) {
+            setNewError('Plz give only 6 length password');
+            return;
+        }
 
         createUserWithEmailAndPassword(email, password);
         navigate('/');
@@ -46,6 +51,7 @@ const SignUp = () => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" name='password' placeholder="Password" />
                 </Form.Group>
+                <p className='text-danger'>{newError}</p>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="I agree toTerms and conditions,Refund policy &Privacy Policy" />
                 </Form.Group>
